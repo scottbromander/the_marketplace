@@ -2,16 +2,37 @@
 <html ng-app="myApp">
   <head>
     <meta charset="utf-8">
-    <title>Chi MEAN</title>
+    <title>The Marketplace</title>
 
     <link rel="stylesheet" href="vendors/bootstrap/css/bootstrap.css" />
     <link rel="stylesheet" href="styles/style.css" />
 
-    <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
-    <script type="text/javascript" src="scripts/client.min.js"></script>
+    <!-- DATA -->
+    <script type="text/javascript" src="scripts/data/settings.js"></script>
+    <script type="text/javascript" src="scripts/data/items.js"></script>
 
+    <!-- CLASSES -->
+    <script type="text/javascript" src="scripts/classes/Utilities.js"></script>
+    <script type="text/javascript" src="scripts/classes/MarketItem.js"></script>
+    <script type="text/javascript" src="scripts/classes/Player.js"></script>
+    <script type="text/javascript" src="scripts/classes/Game.js"></script>
+
+    <!-- ANGULAR -->
+    <script type="text/javascript" src="vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="scripts/client.js"></script>
+    <script type="text/javascript" src="scripts/factories/GameService.js"></script>
+    <script type="text/javascript" src="scripts/controllers/GameController.js"></script>
   </head>
   <body>
-
+    <div ng-controller="GameController">
+      <div class="container">
+        <div class="jumbotron lead">
+          <span>Player Cash: </span><span>{{ gameInstance.player.cash | number : 2 }}</span>
+        </div>
+      </div>
+      <div class="container">
+        <div ng-include="'views/templates/items.html'"></div>
+      </div>
+    </div>
   </body>
 </html>

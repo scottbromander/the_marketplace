@@ -1,0 +1,22 @@
+<div ng-repeat="item in gameInstance.market" >
+  <div class="col-md-2">
+    <div class="btn btn-info btn-large buy-btn" ng-click="clickItem($index)">
+      <p>{{item.name}}</p>
+      <p>{{item.price | number: 2}}</p>
+    </div>
+    <div class="btn btn-success btn-large buy-btn" ng-click="sellItem($index)">
+      <div ng-show="gameInstance.player.inventory[('inv' + item.name)][0]">
+        <p>
+          Total: {{gameInstance.player.inventory[('inv' + item.name)].length}}
+        </p>
+        <p>
+          <span>Average Price: </span><span>{{gameInstance.player.inventory[('inv' + item.name)][0] | number : 2}}</span>
+        </p>
+      </div>
+      <div ng-hide="gameInstance.player.inventory[('inv' + item.name)][0]">
+        <p>None</p>
+        <p>Owned</p>
+      </div>
+    </div>
+  </div>
+</div>
