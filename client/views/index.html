@@ -25,10 +25,17 @@
   </head>
   <body>
     <div ng-controller="GameController">
-      <div class="container">
+      <div class="container-fluid">
         <div class="jumbotron lead">
-          <span>Player Cash: </span><span>{{ gameInstance.player.cash | number : 2 }}</span>
+          <h2><bold>The Market Place</bold></h2>
+          <p>
+            To achieve this you will need to purchase items and sell them when the price becomes higher. To help, you can see the average price you paid for each item next to its green sell button. To purchase an item, simply click on the blue item button. Good luck!
+          </p>
         </div>
+      </div>
+      <div class="container text-center lead">
+        <p ng-hide="gameInstance.enabled">GAME OVER</p>
+        <h2>Player Cash: {{ gameInstance.player.cash | currency }}</h2>
       </div>
       <div class="container">
         <div ng-include="'views/templates/items.html'"></div>

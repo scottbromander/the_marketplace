@@ -17,10 +17,10 @@ class MarketItem {
 
     swing = swing/100; //Covert Dollars to Cents
     this.price += swing;
-    if(this.price < 0.50){
-      this.price = 0.50;
-    } else if (this.price > 9.99){
-      this.price = 9.99;
+    if(this.price < LOWEST_PRICE){
+      this.price = LOWEST_PRICE;
+    } else if (this.price > HIGHEST_PRICE){
+      this.price = HIGHEST_PRICE;
     }
 
     return this.price;

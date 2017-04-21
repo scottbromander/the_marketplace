@@ -1,9 +1,9 @@
 class Game {
   constructor(items){
     this.player = new Player(items);
-    console.log(this.player);
     this.market = [];
     this.createMarkets(items);
+    this.enabled = true;
   }
 
   createMarkets(items){
@@ -14,7 +14,7 @@ class Game {
 
   createMarket(item){
     let marketItem;
-    let { name, type } = item;
+    let { name, type } = item; //Object descructing
 
     switch(type){
       case 'MarketItem':
@@ -35,16 +35,22 @@ class Game {
   }
 
   updateMarkets(){
-    for(let market of this.market){
-      market.changePrice();
+    if(this.enabled){
+      for(let market of this.market){
+        market.changePrice();
+      }
     }
   }
 
   addInventory(item){
-    this.player.addInventory(item);
+    if(this.enabled){
+      this.player.addInventory(item);
+    }
   }
 
   sellInventory(item){
-    this.player.sellInventory(item);
+    if(this.enabled){
+      this.player.sellInventory(item);
+    }
   }
 }

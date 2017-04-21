@@ -1,6 +1,5 @@
 class Player{
   constructor(items){
-    this.name = "Player";
     this.inventory = {};
     this.cash = PLAYER_STARTING_CASH;
     this.createInventory(items);
@@ -24,7 +23,6 @@ class Player{
   }
 
   sellInventory(item){
-    console.log(item);
     let name = item.name;
     let playerInv = this.inventory['inv' + name];
     if(playerInv.length > 0){

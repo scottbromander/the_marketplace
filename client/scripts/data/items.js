@@ -1,4 +1,4 @@
-var items = [
+const GAME_ITEMS = [
     {
       "name" : "Apples",
       "type" : "FruitItem"
